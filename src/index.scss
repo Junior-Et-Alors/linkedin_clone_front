@@ -1,0 +1,26 @@
+@use "./assets/styles/lib";
+@use "./assets/styles/common";
+
+* {
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+html {
+  font-size: lib.$fontSize;
+}
+
+/*
+ Responsive header 
+ 768px 2 colonnes 
+ Sous 768px, logo, barre de recherche qui prend 50% ou plus de la largeur et burger menu à droite du header 
+ Panneau du menu qui vient en glissant de la gauche, contient les boutons d'accueil, de réseau, deux boutons fakes, bouton notification et bouton paramètres 
+ Layout 
+ 768px 2 colonnes 
+ 992px 3 colonnes
+*/
