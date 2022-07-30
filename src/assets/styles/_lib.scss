@@ -1,31 +1,81 @@
 @use "sass:math";
+
+// ====== FONT FAMILY ======
+$font-title: 'Montserrat', sans-serif;
+$font-text: "Roboto", sans-serif;
+
+// ====== FONT WEIGHT ======
+
+$fweight-regular: 400;
+$fweight-medium: 500;
+$fweight-bold: 700;
+
+
 ///* Sizing *///
 $fontSize: 1em;
 
-$--14px: 0.875rem;
-$--15px: 0.9375rem;
-$--16px: 1rem;
-$--17px: 1.0625rem;
-$--18px: 1.125rem;
-$--19px: 1.1875rem;
-$--20px: 1.25rem;
-$--21px: 1.3125rem;
+$fs-13px: 0.8125rem;
+$fs-14px: 0.875rem;
+$fs-15px: 0.9375rem;
+$fs-16px: 1rem;
+$fs-17px: 1.0625rem;
+$fs-18px: 1.125rem;
+$fs-19px: 1.1875rem;
+$fs-20px: 1.25rem;
+$fs-21px: 1.3125rem;
 
 $gap: 25px;
 $halfgap: math.div($gap, 2);
+
+// SECTION WIDTH
 
 $sectionWidth1: 540px;
 $sectionWidth2: 785px;
 $sectionWidth3: 1130px;
 
+// COLUMN WIDTH
+
 $columnWidth1: 225px;
 $columnWidth2: 320px;
+
+
+// ====== SIZES (HEIGHT, WIDTH) ======
+
+$size-8px: 8px;
+$size-16px: 16px;
+$size-24px: 24px;
+$size-32px: 32px;
+$size-40px: 40px;
+
+
+// ====== SPACING (MARGIN, PADDING) ======
+
+$space-8px: 8px;
+$space-16px: 16px;
+$space-24px: 24px;
+$space-32px: 32px;
+$space-40px: 40px;
+$space-48px: 48px;
+$space-56px: 56px;
+$space-72px: 72px;
+
+
+// ====== RADIUS ======
+
+$radius-cercle: 50%;
+$radius-5px: 5px;
+
 
 /* Colors */
 $pinkDark: hsl(343, 50%, 45%);
 $pink: hsl(343, 50%, 60%);
 $pinkLight: hsl(343, 50%, 74%);
 
+$white: hsl(0, 0%, 100%);
 $grayDark: hsl(0, 0%, 5%);
 $gray: hsl(0, 0%, 20%);
 $grayLight: hsl(0, 0%, 35%);
+$grayInputBorder: hsl(0, 0%, 86%);
+$grayInputBackground: hsl(0, 0%, 98%);
+$inputErrorBackground: hsl(343, 100%, 95%);
+$col-errorText: hsl(343, 65%, 53%);

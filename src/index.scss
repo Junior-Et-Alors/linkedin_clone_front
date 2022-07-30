@@ -16,11 +16,27 @@
 html {
   font-size: lib.$fontSize;
 }
+
 html,
 body {
   -webkit-font-smoothing: antialiased;
-  height: 100%;
   line-height: 1.5;
+}
+
+// Allows footer to be at the bottom of the page
+// in combination with styles just after on App component
+// and putting margin-top to auto on the footer
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: lib.$gap;
 }
 
 input,
@@ -42,6 +58,7 @@ svg {
   display: block;
   max-width: 100%;
 }
+
 /*
  Responsive header 
  768px 2 colonnes 
