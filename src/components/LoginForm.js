@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import axios from "axios";
 import { validateEmail } from "../utils/functions";
 // Common styles with RegisterForm component
 import "./../assets/styles/authenticationForm.scss";
@@ -11,7 +11,13 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const redirectHome = () => {
+    setTimeout(() => {
+    window.location = "/";
+  },2000)
+  };
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     const emailError = document.querySelector(".email.error");
@@ -32,13 +38,29 @@ const LoginForm = () => {
     if (emailError.textContent === "" &&  passwordError.textContent === "") {
       setFormSubmit(true);
     }
-  }
 
-  const redirectHome = () => {
-    setTimeout(() => {
-    window.location = "/";
-  },2000)
-  };
+    // await axios({
+    //   method: "post",
+    //   url: `${process.env.REACT_APP_api_url}api/user/login`, // TODO url à modifier
+    //   withCredentials: true,
+    //   data: {
+    //     email,
+    //     password,
+    //   },
+    // })
+    // .then((res) => {
+    //     console.log(res);
+    //     if (res.data.errors) {
+    //       emailError.innerHTML = res.data.errors.email;
+    //       passwordError.innerHTML = res.data.errors.password;
+    //     } else {
+    //       window.location = "/";
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  }
 
   return (
     <>
@@ -52,7 +74,7 @@ const LoginForm = () => {
         </>
       ) : (
 
-        <form action="" onSubmit={handleSubmit} className="loginForm" noValidate>
+        <form action="" onSubmit={handleLogin} className="loginForm" noValidate>
           <div className="errorLogin">Email ou mot de passe invalide</div>
           <label htmlFor="email">Email</label>
           <input
