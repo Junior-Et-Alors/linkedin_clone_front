@@ -5,4 +5,8 @@
   .input.loginPassword {
     margin-bottom: lib.$space-40px;
   }
+
+  .password.error {
+    margin-top: lib.$space-40px * -0.95;
+  }
 }

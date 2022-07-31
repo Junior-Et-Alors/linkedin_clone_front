@@ -18,7 +18,7 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const firstNameError = document.querySelector(".firstName.error");
     const lastNameError = document.querySelector(".lastName.error");
     const birthdateError = document.querySelector(".birthdate.error");
@@ -30,21 +30,17 @@ const RegisterForm = () => {
     const terms = document.getElementById("terms");
     const termsError = document.querySelector(".terms.error");
 
-    let errors =[];
-
     passwordConfirmError.innerHTML = "";
     termsError.innerHTML = "";
 
     if(firstName.length < 2) {
       firstNameError.textContent = "Votre prénom doit faire 2 caractères au minimum";
-      errors.push(firstNameError.textContent);
     } else {
       firstNameError.textContent = "";
     }
 
     if(lastName.length < 2) {
       lastNameError.textContent = "Votre nom doit faire 2 caractères au minimum";
-      errors.push(lastNameError.textContent);
     } else {
       lastNameError.textContent = "";
     }
@@ -85,7 +81,7 @@ const RegisterForm = () => {
     } else {
       termsError.innerHTML = "";
 
-    if (firstNameError.textContent === "" && lastNameError.textContent === "" && emailError.textContent === "" && birthdateError.textContent === "" && emailError.textContent === "" && passwordError.textContent === "" && passwordConfirmError.innerHTML === "") {
+    if (firstNameError.textContent === "" && lastNameError.textContent === "" && birthdateError.textContent === "" && emailError.textContent === "" && passwordError.textContent === "" && passwordConfirmError.innerHTML === "") {
       setFormSubmit(true);
     }
       
