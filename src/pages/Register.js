@@ -1,5 +1,11 @@
+import React from 'react';
+
 const Register = () => {
-  return <div>Je suis le Register</div>;
+  return (
+    <div>
+      Register component
+    </div>
+  );
 };
 
 export default Register;
