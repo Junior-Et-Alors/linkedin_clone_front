@@ -1,51 +1,8 @@
 @use "./lib";
 
 .loginForm {
-  margin-top: lib.$space-24px;
-  font-family: lib.$font-text;
-
-  label {
-    display: block;
-    margin-bottom: lib.$space-8px * 0.7;
-  }
-
-  .input {
-    height: 34px;
-    width: 100%;
-    border: 1px solid lib.$grayInputBorder;
-    margin-bottom: lib.$space-16px * 0.8;
-    background-color: lib.$grayInputBackground;
-  }
-
-  .input.password {
+ 
+  .input.loginPassword {
     margin-bottom: lib.$space-40px;
   }
-
-  .button {
-    height: 36px;
-    width: 100%;
-    background-color: lib.$pink;
-    font-size: lib.$fs-18px;
-    text-transform: uppercase;
-    color: lib.$white;
-    font-weight: lib.$fweight-bold;
-  }
-
-  .input {
-    border-radius: lib.$radius-5px;
-    padding-left: lib.$space-8px;
-  }
-
-  .error {
-    background-color: lib.$inputErrorBackground;
-    height: lib.$space-56px;
-    border-radius: lib.$radius-5px;
-    color: lib.$col-errorText;
-    display: grid;
-    align-items: center;
-    padding-left: lib.$space-8px;
-    margin-bottom: lib.$space-24px;
-    display: none;
-  }
-
 }

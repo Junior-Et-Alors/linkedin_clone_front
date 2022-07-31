@@ -1,10 +1,13 @@
+// Common styles with RegisterForm component
+import "./../assets/styles/authenticationForm.scss";
+// Specific styles to LoginForm component
 import "./../assets/styles/loginForm.scss";
 
 const LoginForm = () => {
 
   return (
     <form action="" className="loginForm">
-      <div className="error">Email ou mot de passe invalide</div>
+      <div className="errorLogin">Email ou mot de passe invalide</div>
       <label htmlFor="email">Email</label>
       <input
         className="input"
@@ -16,7 +19,7 @@ const LoginForm = () => {
 
       <label htmlFor="password">Mot de passe</label>
       <input
-        className="input password"
+        className="input loginPassword"
         type="password"
         name="password"
         id="password"

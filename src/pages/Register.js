@@ -1,9 +1,13 @@
-import React from 'react';
+import RegisterForm from "../components/RegisterForm";
+import "./../assets/styles/register.scss";
 
+// export default Register;
 const Register = () => {
   return (
-    <div>
-      Register component
+    <div className="register">
+      <h2 className="registerTitle">Inscription</h2>
+      <p className="registerDescription">Je m'inscris <span>gratuitement</span> sur le site</p>
+      <RegisterForm />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 @use "./lib";
 
-.login {
+// Styles for both Login and Register components
+
+.login, .register {
   width: 100%;
   max-width: 500px;
   font-size: lib.$fs-14px;
@@ -19,5 +21,11 @@
   &Description {
     border-bottom: 1px solid lib.$pink;
     padding-bottom: lib.$space-8px;
+  }
+}
+
+.register {
+  .registerDescription span {
+    color: lib.$pink;
   }
 }

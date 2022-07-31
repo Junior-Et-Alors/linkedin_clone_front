@@ -14,6 +14,8 @@ $fweight-bold: 700;
 ///* Sizing *///
 $fontSize: 1em;
 
+$fs-10px: 0.625rem;
+$fs-11px: 0.6875rem;
 $fs-13px: 0.8125rem;
 $fs-14px: 0.875rem;
 $fs-15px: 0.9375rem;
@@ -75,6 +77,7 @@ $white: hsl(0, 0%, 100%);
 $grayDark: hsl(0, 0%, 5%);
 $gray: hsl(0, 0%, 20%);
 $grayLight: hsl(0, 0%, 35%);
+$graySuperLight: hsl(0, 0%, 55%);
 $grayInputBorder: hsl(0, 0%, 86%);
 $grayInputBackground: hsl(0, 0%, 98%);
 $inputErrorBackground: hsl(343, 100%, 95%);
