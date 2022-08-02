@@ -14,7 +14,7 @@ import Error from "./pages/Error";
 const App = () => {
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,11 +23,11 @@ const App = () => {
           <Route path="/network/subscribes" element={<NetworkSubscribes />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/*" element={<Error />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );

@@ -1,4 +1,9 @@
-header {
-  border: 1px solid red;
-  padding: 20px;
+@use './lib';
+
+.header {
+  .logoContainer {
+    padding-top: lib.$space-56px;
+    width: 200px;
+    margin: auto;
+  }
 }

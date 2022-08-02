@@ -1,0 +1,25 @@
+@use "./../lib";
+
+.registerForm {
+  .errorRegister {
+    font-size: lib.$fs-13px;
+  }
+
+  label {
+    margin-bottom: initial;
+  }
+
+  input[type="date"] {
+    color: lib.$graySuperLight;
+  }
+
+  .termsContainer {
+    margin-top: lib.$space-8px;
+    margin-bottom: lib.$space-24px;
+    display: flex;
+
+    .termsCheckbox {
+      margin-right: lib.$space-16px;
+    }
+  }
+}

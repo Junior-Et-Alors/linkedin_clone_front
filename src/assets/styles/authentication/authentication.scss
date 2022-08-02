@@ -1,0 +1,33 @@
+@use "./../lib";
+
+// Styles for both Login and Register components
+
+.login, .register {
+  width: 100%;
+  max-width: 500px;
+  font-size: lib.$fs-14px;
+  margin: auto;
+  margin-top: lib.$space-72px;
+  font-family: lib.$font-text;
+
+  &Title {
+    text-transform: uppercase;
+    font-size: lib.$fs-20px;
+    font-family: lib.$font-title;
+    font-weight: lib.$fweight-bold;
+    margin-bottom: lib.$space-16px * 0.6;
+  }
+
+  &Description {
+    border-bottom: 1px solid lib.$pink;
+    padding-bottom: lib.$space-8px;
+  }
+}
+
+.register {
+  .registerDescription span {
+    color: lib.$pink;
+  }
+
+  margin-top: lib.$space-56px;
+}
