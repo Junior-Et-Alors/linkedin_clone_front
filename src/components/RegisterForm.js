@@ -142,7 +142,7 @@ const RegisterForm = () => {
             className="input"
             type="text"
             id="first"
-            name="first"
+            name="firstName"
             minLength="2"
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
@@ -154,7 +154,7 @@ const RegisterForm = () => {
             className="input"
             type="text"
             id="last"
-            name="last"
+            name="lastName"
             minLength="2"
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
@@ -182,7 +182,7 @@ const RegisterForm = () => {
             className="input"
             type="date"
             id="birthdate"
-            name="birthdate"
+            name="age"
             onChange={(e) => setBirthdate(e.target.value)}
             value={birthdate}
           />
