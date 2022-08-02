@@ -7,6 +7,7 @@
 // projet : Nom, début/fin, URL, description
 // post : Contenu du post
 
+import axios from "axios";
 import { useContext } from "react";
 import { ModalContext } from "../../../App";
 import "../../../assets/styles/formModal.scss";
@@ -21,8 +22,21 @@ const FormModal = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Coucou");
+    if (modalConfig.modify) {
+      updateData();
+    } else {
+      addData();
+    }
+  };
+
+  const addData = () => {};
+
+  const updateData = async () => {
+    try {
+      const res = await axios.post("BACKEND URL", { inputDatas });
+    } catch (error) {
+      console.log("Error updating data (FormModal.js) : ", error);
+    }
   };
 
   return (
