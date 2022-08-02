@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { validateEmail, validateAge } from './../utils/functions';
 
 // Common styles with LoginForm component
-import "../assets/styles/authenticationForm.scss";
+import "../assets/styles/authentication/authenticationForm.scss";
 // Specific styles to RegisterForm component
-import "../assets/styles/registerForm.scss";
+import "../assets/styles/authentication/registerForm.scss";
 
 const RegisterForm = () => {
   const [formSubmit, setFormSubmit] = useState(false);
@@ -16,6 +17,8 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [controlPassword, setControlPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -116,8 +119,8 @@ const RegisterForm = () => {
 
   const redirectLogin = () => {
     setTimeout(() => {
-    window.location = "/login";
-  },2000)
+    navigate("/login");
+  }, 2000)
   };
 
   return (
@@ -225,7 +228,7 @@ const RegisterForm = () => {
             <label htmlFor="terms" className="termsLabel">
               J'accepte les{" "}
               <a href="/" target="_blank" rel="noopener noreferrer">
-                conditions générales
+                conditions générales*
               </a>
             </label>
             </div>

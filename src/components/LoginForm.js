@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { validateEmail } from "../utils/functions";
 // Common styles with RegisterForm component
-import "./../assets/styles/authenticationForm.scss";
+import "./../assets/styles/authentication/authenticationForm.scss";
 // Specific styles to LoginForm component
-import "./../assets/styles/loginForm.scss";
+import "./../assets/styles/authentication/loginForm.scss";
 
 const LoginForm = () => {
   const [formSubmit, setFormSubmit] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const redirectHome = () => {
     setTimeout(() => {
-    window.location = "/";
+    navigate("/");
   },2000)
   };
 

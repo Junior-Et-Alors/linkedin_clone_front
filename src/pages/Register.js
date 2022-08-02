@@ -1,5 +1,5 @@
 import RegisterForm from "../components/RegisterForm";
-import "./../assets/styles/register.scss";
+import "./../assets/styles/authentication/register.scss";
 
 // export default Register;
 const Register = () => {

@@ -1,6 +1,6 @@
 import LoginForm from "../components/LoginForm";
 // import "./../assets/styles/login.scss";
-import "./../assets/styles/authentication.scss";
+import "./../assets/styles/authentication/authentication.scss";
 
 const Login = () => {
   return (
