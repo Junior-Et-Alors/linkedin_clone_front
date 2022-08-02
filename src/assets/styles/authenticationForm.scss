@@ -11,7 +11,7 @@
     margin-bottom: lib.$space-8px * 0.7;
   }
 
-  .input {
+  .input, .select {
     height: 34px;
     width: 100%;
     border: 1px solid lib.$grayInputBorder;
@@ -19,6 +19,31 @@
     background-color: lib.$grayInputBackground;
     border-radius: lib.$radius-5px;
     padding-left: lib.$space-8px;
+  }
+
+  .select {
+    // Removes the default select arrow
+    appearance: none;
+    -moz-appearance: none;  /* Firefox */
+    -webkit-appearance: none;  /* Chrome, Safari */
+  }
+
+  // Sets a custom arrow
+  .selectContainer {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      // content: "\2304";
+      // content: "▼";
+      content: "\25BC";
+      font-size: lib.$fs-16px;
+      padding: 0 13px;
+      right: 0;
+      top: lib.$space-8px * 0.8;
+      pointer-events: none;
+      
+    }
   }
 
   .button {

@@ -11,6 +11,7 @@ const RegisterForm = () => {
   const [formSubmit, setFormSubmit] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [gender, setGender] = useState("");
   const [birthdate, setBirthdate] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -91,6 +92,7 @@ const RegisterForm = () => {
       //   data: {
       //     firstName,
       //     lastName,
+      //     gender,
       //     birthdate,
       //     email,
       //     password,
@@ -155,6 +157,22 @@ const RegisterForm = () => {
             value={lastName}
           />
           <div className="lastName error"></div>
+
+          <label htmlFor="gender" id="genderLabel">Vous êtes</label>
+          <div className="selectContainer">
+          <select
+            className="select"
+            id="gender"
+            name="gender"
+            aria-labelledby="genderLabel gender"
+            onChange={(e) => setGender(e.target.value)}
+            value={gender}
+          >
+            <option value="" selected></option>
+            <option value="woman" selected>Une femme</option>
+            <option value="man">Un homme</option>
+          </select>
+          </div>
 
           <label htmlFor="birthdate">Votre date de naissance*</label>
           <input
