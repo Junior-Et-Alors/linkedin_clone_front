@@ -7,25 +7,28 @@
 // projet : Nom, début/fin, URL, description
 // post : Contenu du post
 
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { ModalContext } from "../../../App";
 import "../../../assets/styles/formModal.scss";
-const FormModal = ({ formTemplate, modalTitle, toggle, setToggle }) => {
-  const Template = formTemplate;
-  const [inputDatas, setInputDatas] = useState({});
+
+const FormModal = () => {
+  const { modalConfig, showModal, setShowModal } = useContext(ModalContext);
+  const Template = modalConfig.template;
+  console.log(Template);
   const handleClick = (e) => {
     /* When i click, it check the target. If it's this modal's overlay, it close this modal */
-    e.target.className.indexOf("modal-overlay") === 0 && setToggle(false);
+    e.target.className.indexOf("modal-overlay") === 0 && setShowModal(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputDatas);
+    console.log("Coucou");
   };
+
   return (
-    <aside onClick={(e) => handleClick(e)} className={`modal-overlay ${toggle ? "toggled" : "untoggled"}`}>
+    <aside onClick={(e) => handleClick(e)} className={`modal-overlay ${showModal ? "toggled" : "untoggled"}`}>
       <form className="modal-content" onSubmit={(e) => handleSubmit(e)}>
-        <h6>{modalTitle}</h6>
-        <Template inputDatas={inputDatas} setInputDatas={setInputDatas} />
+        <Template />
         <button type="submit">Enregistrer</button>
       </form>
     </aside>

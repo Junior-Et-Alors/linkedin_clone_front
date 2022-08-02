@@ -1,4 +1,6 @@
+@use "./lib";
+
 header {
-  border: 1px solid red;
+  border: 1px solid lib.$gray;
   padding: 20px;
 }

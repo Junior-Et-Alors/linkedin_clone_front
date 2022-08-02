@@ -2,7 +2,15 @@
 /* Trouver un moyen de conditionner pour récupérer les infos correspondantes */
 
 /* On va l'utiliser pour le profil utilisateur mais aussi pour les autres profils */
-import { useEffect, useState } from "react";
+
+/* TODO :
+
+Passer l'ID et les valeurs de l'objet correspondant en cas de modification.
+Implémenter la communication avec le back
+Récupérer l'user dans un contexte global 
+
+*/
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import user from "../assets/placeholders/users/testUser";
 import FormModal from "../components/Shared/Modals/FormModal";
@@ -12,31 +20,28 @@ import FormationForm from "../components/Shared/Modals/formTemplates/FormationFo
 import ProjectForm from "../components/Shared/Modals/formTemplates/ProjectForm";
 import PictureForm from "../components/Shared/Modals/formTemplates/PictureForm";
 import PostForm from "../components/Shared/Modals/formTemplates/PostForm";
+import { ModalContext } from "../App";
+
 const Profile = () => {
-  const [toggleModProfilePicture, setToggleModProfilePicture] = useState(false);
-  const [toggleModBannerPicture, setToggleModBannerPicture] = useState(false);
+  const { setModalConfig, setShowModal } = useContext(ModalContext);
 
-  const [toggleModDescription, setToggleModDescription] = useState(false);
-  const [toggleAddPost, setToggleAddPost] = useState(false);
+  const mountModal = (config) => {
+    setModalConfig(config);
+    setShowModal(true);
+  };
 
-  const [toggleAddXp, setToggleAddXp] = useState(false);
-  const [toggleModXp, setToggleModXp] = useState(false);
-
-  const [toggleAddFormation, setToggleAddFormation] = useState(false);
-  const [toggleModFormation, setToggleModFormation] = useState(false);
-
-  const [toggleAddProject, setToggleAddProject] = useState(false);
-  const [toggleModProject, setToggleModProject] = useState(false);
   return (
     <>
       <section>
         <div className="banner-container">
           <img src={user.profileBanner} alt="Profile banner" />
-          <button onClick={() => setToggleModBannerPicture(true)}>mod banner pic</button>
-          <button onClick={() => setToggleModProfilePicture(true)}>
-            <img src={user.profilePicture} alt="Profile" />
+          <button onClick={() => mountModal({ title: "Modifier la banière", template: PictureForm, action: "mod" })}>mod pbanner</button>
+
+          <button onClick={() => mountModal({ title: "Modifier la photo de profil", template: PictureForm, action: "mod" })}>
+            <img src={user.profilePicture} alt="Profile avatar" />
           </button>
         </div>
+
         <div className="user-info-container">
           <div className="left-container">
             <p>
@@ -48,7 +53,7 @@ const Profile = () => {
             <p>NB de relations</p>
           </div>
           <div className="right-container">
-            <p>Ancre vers l'expérience{/* Correspondant au job actuel */}</p>
+            <p>Ancre vers l'expérience</p>
             <p>Ancre vers la formation</p>
           </div>
         </div>
@@ -56,7 +61,7 @@ const Profile = () => {
       <section>
         <header>
           <h3>Infos</h3>
-          <button onClick={() => setToggleModDescription(true)}>mod description</button>
+          <button onClick={() => mountModal({ title: "Modifier la description", template: DescriptionForm, action: "mod" })}>mod desc</button>
         </header>
         <p>{user.description}</p>
       </section>
@@ -68,12 +73,12 @@ const Profile = () => {
             <p>{user.followers.length} abonnés</p>
           </div>
           <div>
-            <button onClick={() => setToggleAddPost(true)}>Post</button>
+            <button onClick={() => mountModal({ title: "Créer un post", template: PostForm, action: "add" })}>post</button>
           </div>
         </header>
         <ul>
-          {user.posts.map((post) => (
-            <li>
+          {user.posts.map((post, i) => (
+            <li key={i}>
               <p>{post.content}</p>
               <p>{post.postedAt}</p>
             </li>
@@ -85,15 +90,15 @@ const Profile = () => {
         <header>
           <div>
             <h3>Expérience</h3>
-            <button onClick={() => setToggleAddXp(true)}>add xp</button>
+            <button onClick={() => mountModal({ title: "Ajouter une expérience", template: ExperienceForm, action: "add" })}>add xp</button>
           </div>
         </header>
         <ul>
-          {user.experiences.map((xp) => (
-            <li>
+          {user.experiences.map((xp, i) => (
+            <li key={i}>
               <p>{xp.name}</p>
               <p>{xp.structure}</p>
-              <button onClick={() => setToggleModXp(true)}>modify xp</button>
+              <button onClick={() => mountModal({ title: "Modifier l'expérience", template: ExperienceForm, action: "mod" })}>mod xp</button>
             </li>
           ))}
         </ul>
@@ -103,15 +108,15 @@ const Profile = () => {
         <header>
           <div>
             <h3>Formation</h3>
-            <button onClick={() => setToggleAddFormation(true)}>add formation</button>
+            <button onClick={() => mountModal({ title: "Ajouter une formation", template: FormationForm, action: "add" })}>add formation</button>
           </div>
         </header>
         <ul>
-          {user.formations.map((formation) => (
-            <li>
+          {user.formations.map((formation, i) => (
+            <li key={i}>
               <p>{formation.school}</p>
               <p>{formation.domain}</p>
-              <button onClick={() => setToggleModFormation(true)}>modify formation</button>
+              <button onClick={() => mountModal({ title: "Modifier une formation", template: FormationForm, action: "mod" })}>mod formation</button>
             </li>
           ))}
         </ul>
@@ -121,35 +126,20 @@ const Profile = () => {
         <header>
           <div>
             <h3>Projets</h3>
-            <button onClick={() => setToggleAddProject(true)}>add project</button>
+            <button onClick={() => mountModal({ title: "Ajouter un projet", template: ProjectForm, action: "add" })}>add project</button>
           </div>
         </header>
         <ul>
-          {user.projects.map((project) => (
-            <li>
+          {user.projects.map((project, i) => (
+            <li key={i}>
               <p>{project.name}</p>
               <p>{project.description}</p>
-              <button onClick={() => setToggleModProject(true)}>modify project</button>
+              <button onClick={() => mountModal({ title: "Modifier le projet", template: ProjectForm, action: "mod" })}>mod project</button>
             </li>
           ))}
         </ul>
       </section>
-
-      <FormModal formTemplate={PictureForm} modalTitle={"Modifier la photo de profil"} userAction={"modify"} toggle={toggleModProfilePicture} setToggle={setToggleModProfilePicture} />
-      <FormModal formTemplate={PictureForm} modalTitle={"Modifier la photo de couverture"} userAction={"modify"} toggle={toggleModBannerPicture} setToggle={setToggleModBannerPicture} />
-
-      <FormModal formTemplate={DescriptionForm} modalTitle={"Votre description"} userAction={"modify"} toggle={toggleModDescription} setToggle={setToggleModDescription} />
-
-      <FormModal formTemplate={PostForm} modalTitle={"Publier un post"} userAction={"add"} toggle={toggleAddPost} setToggle={setToggleAddPost} />
-
-      <FormModal formTemplate={ExperienceForm} modalTitle={"Ajouter une expérience"} userAction={"add"} toggle={toggleAddXp} setToggle={setToggleAddXp} />
-      <FormModal formTemplate={ExperienceForm} modalTitle={"Modifier l'expérience"} userAction={"modify"} toggle={toggleModXp} setToggle={setToggleModXp} />
-
-      <FormModal formTemplate={FormationForm} modalTitle={"Ajouter une formation"} userAction={"add"} toggle={toggleAddFormation} setToggle={setToggleAddFormation} />
-      <FormModal formTemplate={FormationForm} modalTitle={"Modifier la formation"} userAction={"modify"} toggle={toggleModFormation} setToggle={setToggleModFormation} />
-
-      <FormModal formTemplate={ProjectForm} modalTitle={"Ajouter un projet"} userAction={"add"} toggle={toggleAddProject} setToggle={setToggleAddProject} />
-      <FormModal formTemplate={ProjectForm} modalTitle={"Modifier le projet"} userAction={"modify"} toggle={toggleModProject} setToggle={setToggleModProject} />
+      <FormModal />
     </>
   );
 };

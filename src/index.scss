@@ -1,3 +1,4 @@
+@use "./assets/styles/lib";
 @use "./assets/styles/common";
 
 * {
@@ -13,38 +14,28 @@
 }
 
 html {
-  --fontSize: 1em;
-  --fs14: 0.875rem;
-  --fs15: 0.9375rem;
-  --fs16: 1rem;
-  --fs17: 1.0625rem;
-  --fs18: 1.125rem;
-  --fs19: 1.1875rem;
-  --fs20: 1.25rem;
-  --fs21: 1.3125rem;
-
-  --gap: 25px;
-  --halfGap: calc(var(--gap) / 2);
-
-  --sectionWidth1: 540px;
-  --sectionWidth2: 785px;
-  --sectionWidth3: 1130px;
-  --columnWidth1: 225px;
-  --columnWidth2: 320px;
-
-  --pinkDark: hsl(343, 50%, 45%);
-  --pink: hsl(343, 50%, 60%);
-  --pinkLight: hsl(343, 50%, 74%);
-  --grayDark: hsl(0, 0%, 5%);
-  --gray: hsl(0, 0%, 20%);
-  --grayLight: hsl(0, 0%, 35%);
-  --transparentModalOverlay: rgba(0, 0, 0, 0.5);
+  font-size: lib.$fontSize;
 }
+
 html,
 body {
   -webkit-font-smoothing: antialiased;
-  height: 100%;
   line-height: 1.5;
+}
+
+// Allows footer to be at the bottom of the page
+// in combination with styles just after on App component
+// and putting margin-top to auto on the footer
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 input,

@@ -1,3 +1,4 @@
+import { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Shared/Header";
 import Footer from "./components/Shared/Footer";
@@ -10,11 +11,15 @@ import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Error from "./pages/Error";
-
+import PostForm from "./components/Shared/Modals/formTemplates/PostForm";
+export const ModalContext = createContext();
 const App = () => {
+  const [modalConfig, setModalConfig] = useState({ title: "Post", template: PostForm, action: "add" });
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <Router>
-      <div className="App">
+    <ModalContext.Provider value={{ modalConfig, setModalConfig, showModal, setShowModal }}>
+      <Router>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -28,8 +33,8 @@ const App = () => {
           <Route path="/*" element={<Error />} />
         </Routes>
         <Footer />
-      </div>
-    </Router>
+      </Router>
+    </ModalContext.Provider>
   );
 };
 

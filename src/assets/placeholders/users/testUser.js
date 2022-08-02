@@ -5,6 +5,7 @@ const user = {
   age: 12, // Required, do we ask the brithday to calculate actual age ?
   actualJob: "jardinier",
   actualStructure: "jardiland",
+  genre: "m",
   city: "Atlanta",
   country: "USA",
   email: "renelejardinier@gmail.com",
@@ -21,14 +22,14 @@ const user = {
 
   posts: [
     {
-      id: "5646859",
-      owner: "Robert",
+      _id: "1",
+      owner: "René",
       postedAt: "00/00/0000",
       content: "Cher réseau, je vous fais coucou",
       comments: [
-        { author: "ID1", content: "Comment placeholder1", date: "01/01/2001" },
-        { author: "ID2", content: "Comment placeholder2", date: "01/01/2001" },
-        { author: "ID3", content: "Comment placeholder3", date: "01/01/2001" },
+        { _id: "7", author: "User1", content: "Post 1 : Comment placeholder1", date: "01/01/2001" },
+        { _id: "8", author: "User2", content: "Post 1 : Comment placeholder2", date: "01/01/2001" },
+        { _id: "9", author: "User3", content: "Post 1 : Comment placeholder3", date: "01/01/2001" },
       ],
       reactions: {
         like: 0,
@@ -39,14 +40,14 @@ const user = {
       },
     },
     {
-      id: "5646859",
-      owner: "Robert",
+      _id: "2",
+      owner: "René",
       postedAt: "00/00/0000",
       content: "Cher réseau, je vous fais coucou",
       comments: [
-        { author: "ID1", content: "Comment placeholder1", date: "01/01/2001" },
-        { author: "ID2", content: "Comment placeholder2", date: "01/01/2001" },
-        { author: "ID3", content: "Comment placeholder3", date: "01/01/2001" },
+        { _id: "1", author: "User1", content: "Post 2 : Comment placeholder1", date: "01/01/2001" },
+        { _id: "2", author: "User2", content: "Post 2 : Comment placeholder2", date: "01/01/2001" },
+        { _id: "3", author: "User3", content: "Post 2 : Comment placeholder3", date: "01/01/2001" },
       ],
       reactions: {
         like: 0,
@@ -57,14 +58,14 @@ const user = {
       },
     },
     {
-      id: "5646859",
-      owner: "Robert",
+      _id: "3",
+      owner: "René",
       postedAt: "00/00/0000",
       content: "Cher réseau, je vous fais coucou",
       comments: [
-        { author: "ID1", content: "Comment placeholder1", date: "01/01/2001" },
-        { author: "ID2", content: "Comment placeholder2", date: "01/01/2001" },
-        { author: "ID3", content: "Comment placeholder3", date: "01/01/2001" },
+        { _id: "4", author: "User1", content: "Post 3 : Comment placeholder1", date: "01/01/2001" },
+        { _id: "5", author: "User2", content: "Post 3 : Comment placeholder2", date: "01/01/2001" },
+        { _id: "6", author: "User3", content: "Post 3 : Comment placeholder3", date: "01/01/2001" },
       ],
       reactions: {
         like: 0,
@@ -81,7 +82,7 @@ const user = {
 
   experiences: [
     {
-      //ID
+      _id: "1",
       name: "Job1", // Required
       type: "CDD",
       structure: "Struct1", // Required
@@ -91,7 +92,7 @@ const user = {
       description: "job desc 1",
     },
     {
-      //ID
+      _id: "2",
       name: "Job2",
       type: "CDD",
       structure: "Struct2",
@@ -101,7 +102,7 @@ const user = {
       description: "job desc 2",
     },
     {
-      //ID
+      _id: "3",
       name: "Job3",
       type: "CDD",
       structure: "Struct3",
@@ -140,17 +141,19 @@ const user = {
   projects: [
     // Projects made by the user, is displayed on the profile screen
     {
+      _id: "1",
       name: "test project 1", // Required
       fromDate: "01/02/1990", // Required
       toDate: "01/02/1993", // Required
-      projectURL: "",
+      projectURL: "test.com",
       description: "Test description project 1", // Required
     },
     {
+      _id: "2",
       name: "test project 2", // Required
       fromDate: "01/02/1994", // Required
       toDate: "01/02/1995", // Required
-      projectURL: "",
+      projectURL: "test2.com",
       description: "Test description project 2", // Required
     },
   ],

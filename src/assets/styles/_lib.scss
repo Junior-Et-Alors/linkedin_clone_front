@@ -1,29 +1,32 @@
+@use "sass:math";
 ///* Sizing *///
-$fontSize: var(--fontSize);
-$fs14: var(--fs14);
-$fs15: var(--fs15);
-$fs16: var(--fs16);
-$fs17: var(--fs17);
-$fs18: var(--fs18);
-$fs19: var(--fs19);
-$fs20: var(--fs20);
-$fs21: var(--fs21);
+$fontSize: 1em;
 
-$gap: var(--gap);
-$halfgap: var(--halfGap);
+$fs-14px: 0.875rem;
+$fs-15px: 0.9375rem;
+$fs-16px: 1rem;
+$fs-17px: 1.0625rem;
+$fs-18px: 1.125rem;
+$fs-19px: 1.1875rem;
+$fs-20px: 1.25rem;
+$fs-21px: 1.3125rem;
 
-$sectionWidth1: var(--sectionWidth1);
-$sectionWidth2: var(--sectionWidth2);
-$sectionWidth3: var(--sectionWidth3);
-$columnWidth1: var(--columnWidth1);
-$columnWidth2: var(--columnWidth2);
+$gap: 25px;
+$halfgap: math.div($gap, 2);
+
+$sectionWidth1: 540px;
+$sectionWidth2: 785px;
+$sectionWidth3: 1130px;
+
+$columnWidth1: 225px;
+$columnWidth2: 320px;
 
 /* Colors */
-$pinkDark: var(--pinkDark);
-$pink: var(--pink);
-$pinkLight: var(--pinkLight);
+$pinkDark: hsl(343, 50%, 45%);
+$pink: hsl(343, 50%, 60%);
+$pinkLight: hsl(343, 50%, 74%);
 
-$grayDark: var(--grayDark);
-$gray: var(--gray);
-$grayLight: var(--grayLight);
-$transparentModalOverlay: var(--transparentModalOverlay);
+$grayDark: hsl(0, 0%, 5%);
+$gray: hsl(0, 0%, 20%);
+$grayLight: hsl(0, 0%, 35%);
+$transparentGray: rgba(0, 0, 0, 0.5);
