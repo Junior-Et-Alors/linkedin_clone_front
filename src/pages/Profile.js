@@ -12,7 +12,6 @@ Récupérer l'user dans un contexte global
 */
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import user from "../assets/placeholders/users/testUser";
 import FormModal from "../components/Shared/Modals/FormModal";
 import DescriptionForm from "../components/Shared/Modals/formTemplates/DescriptionForm";
 import ExperienceForm from "../components/Shared/Modals/formTemplates/ExperienceForm";
@@ -21,9 +20,10 @@ import ProjectForm from "../components/Shared/Modals/formTemplates/ProjectForm";
 import PictureForm from "../components/Shared/Modals/formTemplates/PictureForm";
 import PostForm from "../components/Shared/Modals/formTemplates/PostForm";
 import { ModalContext } from "../App";
-
+import { UserContext } from "../App";
 const Profile = () => {
   const { setModalConfig, setShowModal } = useContext(ModalContext);
+  const { user } = useContext(UserContext);
 
   const mountModal = (config) => {
     setModalConfig(config);
@@ -35,9 +35,9 @@ const Profile = () => {
       <section>
         <div className="banner-container">
           <img src={user.profileBanner} alt="Profile banner" />
-          <button onClick={() => mountModal({ title: "Modifier la banière", template: PictureForm, action: "mod" })}>mod pbanner</button>
+          <button onClick={() => mountModal({ title: "Modifier la banière", template: PictureForm, modify: true })}>mod pbanner</button>
 
-          <button onClick={() => mountModal({ title: "Modifier la photo de profil", template: PictureForm, action: "mod" })}>
+          <button onClick={() => mountModal({ title: "Modifier la photo de profil", template: PictureForm, modify: true })}>
             <img src={user.profilePicture} alt="Profile avatar" />
           </button>
         </div>
@@ -58,10 +58,11 @@ const Profile = () => {
           </div>
         </div>
       </section>
+
       <section>
         <header>
           <h3>Infos</h3>
-          <button onClick={() => mountModal({ title: "Modifier la description", template: DescriptionForm, action: "mod" })}>mod desc</button>
+          <button onClick={() => mountModal({ title: "Modifier la description", template: DescriptionForm, modify: true })}>mod desc</button>
         </header>
         <p>{user.description}</p>
       </section>
@@ -73,7 +74,7 @@ const Profile = () => {
             <p>{user.followers.length} abonnés</p>
           </div>
           <div>
-            <button onClick={() => mountModal({ title: "Créer un post", template: PostForm, action: "add" })}>post</button>
+            <button onClick={() => mountModal({ title: "Créer un post", template: PostForm, modify: false })}>post</button>
           </div>
         </header>
         <ul>
@@ -81,6 +82,7 @@ const Profile = () => {
             <li key={i}>
               <p>{post.content}</p>
               <p>{post.postedAt}</p>
+              <button onClick={() => mountModal({ title: "Modifier le post", template: PostForm, modify: post })}>post</button>
             </li>
           ))}
         </ul>
@@ -90,7 +92,7 @@ const Profile = () => {
         <header>
           <div>
             <h3>Expérience</h3>
-            <button onClick={() => mountModal({ title: "Ajouter une expérience", template: ExperienceForm, action: "add" })}>add xp</button>
+            <button onClick={() => mountModal({ title: "Ajouter une expérience", template: ExperienceForm, modify: false })}>add xp</button>
           </div>
         </header>
         <ul>
@@ -98,7 +100,7 @@ const Profile = () => {
             <li key={i}>
               <p>{xp.name}</p>
               <p>{xp.structure}</p>
-              <button onClick={() => mountModal({ title: "Modifier l'expérience", template: ExperienceForm, action: "mod" })}>mod xp</button>
+              <button onClick={() => mountModal({ title: "Modifier l'expérience", template: ExperienceForm, modify: xp })}>mod xp</button>
             </li>
           ))}
         </ul>
@@ -108,7 +110,7 @@ const Profile = () => {
         <header>
           <div>
             <h3>Formation</h3>
-            <button onClick={() => mountModal({ title: "Ajouter une formation", template: FormationForm, action: "add" })}>add formation</button>
+            <button onClick={() => mountModal({ title: "Ajouter une formation", template: FormationForm, modify: false })}>add formation</button>
           </div>
         </header>
         <ul>
@@ -116,7 +118,7 @@ const Profile = () => {
             <li key={i}>
               <p>{formation.school}</p>
               <p>{formation.domain}</p>
-              <button onClick={() => mountModal({ title: "Modifier une formation", template: FormationForm, action: "mod" })}>mod formation</button>
+              <button onClick={() => mountModal({ title: "Modifier une formation", template: FormationForm, modify: formation })}>mod formation</button>
             </li>
           ))}
         </ul>
@@ -126,7 +128,7 @@ const Profile = () => {
         <header>
           <div>
             <h3>Projets</h3>
-            <button onClick={() => mountModal({ title: "Ajouter un projet", template: ProjectForm, action: "add" })}>add project</button>
+            <button onClick={() => mountModal({ title: "Ajouter un projet", template: ProjectForm, modify: false })}>add project</button>
           </div>
         </header>
         <ul>
@@ -134,11 +136,12 @@ const Profile = () => {
             <li key={i}>
               <p>{project.name}</p>
               <p>{project.description}</p>
-              <button onClick={() => mountModal({ title: "Modifier le projet", template: ProjectForm, action: "mod" })}>mod project</button>
+              <button onClick={() => mountModal({ title: "Modifier le projet", template: ProjectForm, modify: project })}>mod project</button>
             </li>
           ))}
         </ul>
       </section>
+
       <FormModal />
     </>
   );

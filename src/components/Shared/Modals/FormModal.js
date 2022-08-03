@@ -8,41 +8,62 @@
 // post : Contenu du post
 
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ModalContext } from "../../../App";
 import "../../../assets/styles/formModal.scss";
 
 const FormModal = () => {
   const { modalConfig, showModal, setShowModal } = useContext(ModalContext);
-  const Template = modalConfig.template;
-  console.log(Template);
+  const [inputsDatas, setInputsDatas] = useState();
+  const FormTemplate = modalConfig.template;
   const handleClick = (e) => {
     /* When i click, it check the target. If it's this modal's overlay, it close this modal */
     e.target.className.indexOf("modal-overlay") === 0 && setShowModal(false);
   };
 
+  const handleChange = (e) => {
+    const newInputsDatas = { ...inputsDatas };
+    for (let i = 0; i < Object.keys(inputsDatas).length; i++) {
+      if (e.target.name === Object.keys(inputsDatas)[i]) {
+        Object.defineProperty(newInputsDatas, e.target.name, { value: e.target.value, writable: true });
+        console.log(newInputsDatas);
+        setInputsDatas(newInputsDatas);
+      }
+    }
+  };
+
   const handleSubmit = (e) => {
-    if (modalConfig.modify) {
-      updateData();
-    } else {
-      addData();
-    }
+    e.preventDefault();
+    // if (modalConfig.modify) {
+    //   updateData();
+    // } else {
+    //   addData();
+    // }
   };
 
-  const addData = () => {};
+  // const addData = async () => {
+  //   try {
+  //     const res = await axios.post("BACKEND URL", { inputsDatas });
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log("Error updating data (FormModal.js) : ", error);
+  //   }
+  // };
 
-  const updateData = async () => {
-    try {
-      const res = await axios.post("BACKEND URL", { inputDatas });
-    } catch (error) {
-      console.log("Error updating data (FormModal.js) : ", error);
-    }
-  };
+  // const updateData = async () => {
+  //   try {
+  //     const res = await axios.post("BACKEND URL", { inputsDatas });
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log("Error updating data (FormModal.js) : ", error);
+  //   }
+  // };
 
   return (
     <aside onClick={(e) => handleClick(e)} className={`modal-overlay ${showModal ? "toggled" : "untoggled"}`}>
       <form className="modal-content" onSubmit={(e) => handleSubmit(e)}>
-        <Template />
+        <h6>{modalConfig.title}</h6>
+        <FormTemplate inputsDatas={inputsDatas} setInputsDatas={setInputsDatas} modify={modalConfig.modify} handleChange={handleChange} showModal={showModal} />
         <button type="submit">Enregistrer</button>
       </form>
     </aside>

@@ -12,29 +12,34 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Error from "./pages/Error";
 import PostForm from "./components/Shared/Modals/formTemplates/PostForm";
+import testUser from "./assets/placeholders/users/testUser";
 export const ModalContext = createContext();
-const App = () => {
-  const [modalConfig, setModalConfig] = useState({ title: "Post", template: PostForm, action: "add" });
-  const [showModal, setShowModal] = useState(false);
+export const UserContext = createContext();
 
+const App = () => {
+  const [modalConfig, setModalConfig] = useState({ title: "Post", template: PostForm, modify: false });
+  const [showModal, setShowModal] = useState(false);
+  const [user, setUser] = useState(testUser);
   return (
-    <ModalContext.Provider value={{ modalConfig, setModalConfig, showModal, setShowModal }}>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/network" element={<NetworkHome />} />
-          <Route path="/network/connexions" element={<NetworkConnexions />} />
-          <Route path="/network/subscribes" element={<NetworkSubscribes />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/*" element={<Error />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </ModalContext.Provider>
+    <UserContext.Provider value={{ user, setUser }}>
+      <ModalContext.Provider value={{ modalConfig, setModalConfig, showModal, setShowModal }}>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/network" element={<NetworkHome />} />
+            <Route path="/network/connexions" element={<NetworkConnexions />} />
+            <Route path="/network/subscribes" element={<NetworkSubscribes />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/Register" element={<Register />} />
+            <Route path="/*" element={<Error />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </ModalContext.Provider>
+    </UserContext.Provider>
   );
 };
 

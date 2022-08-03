@@ -1,11 +1,12 @@
-const user = {
+const testUser = {
   firstName: "René", // Required, 50 char max, trim
   lastName: "Malleville",
   _id: "randomString", // Asigned at inscription by backend
   age: 12, // Required, do we ask the brithday to calculate actual age ?
   actualJob: "jardinier",
   actualStructure: "jardiland",
-  genre: "m",
+  phone: "",
+  gender: "m",
   city: "Atlanta",
   country: "USA",
   email: "renelejardinier@gmail.com",
@@ -166,4 +167,4 @@ const user = {
   ],
 };
 
-export default user;
+export default testUser;
