@@ -19,8 +19,7 @@ import FormationForm from "../components/Shared/Modals/formTemplates/FormationFo
 import ProjectForm from "../components/Shared/Modals/formTemplates/ProjectForm";
 import PictureForm from "../components/Shared/Modals/formTemplates/PictureForm";
 import PostForm from "../components/Shared/Modals/formTemplates/PostForm";
-import { ModalContext } from "../App";
-import { UserContext } from "../App";
+import { UserContext, ModalContext } from "../App";
 const Profile = () => {
   const { setModalConfig, setShowModal } = useContext(ModalContext);
   const { user } = useContext(UserContext);
@@ -62,7 +61,7 @@ const Profile = () => {
       <section>
         <header>
           <h3>Infos</h3>
-          <button onClick={() => mountModal({ title: "Modifier la description", template: DescriptionForm, modify: true })}>mod desc</button>
+          <button onClick={() => mountModal({ title: "Modifier la description", template: DescriptionForm, modify: user.description })}>mod desc</button>
         </header>
         <p>{user.description}</p>
       </section>

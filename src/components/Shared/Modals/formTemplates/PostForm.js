@@ -1,8 +1,14 @@
-const PostForm = () => {
+import { useEffect } from "react";
+
+const PostForm = ({ inputsDatas, setInputsDatas, modify, handleChange }) => {
+  useEffect(() => {
+    setInputsDatas({
+      content: modify ? modify.content : "",
+    });
+  }, [modify]);
   return (
     <>
-      <h6>postForm</h6>
-      <textarea></textarea>
+      <textarea defaultValue={inputsDatas.content} placeholder="Qu'allez vous partager ?"></textarea>
     </>
   );
 };

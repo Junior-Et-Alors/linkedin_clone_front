@@ -20,6 +20,7 @@ const App = () => {
   const [modalConfig, setModalConfig] = useState({ title: "Post", template: PostForm, modify: false });
   const [showModal, setShowModal] = useState(false);
   const [user, setUser] = useState(testUser);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <ModalContext.Provider value={{ modalConfig, setModalConfig, showModal, setShowModal }}>

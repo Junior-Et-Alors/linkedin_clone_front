@@ -26,7 +26,7 @@ const testUser = {
       _id: "1",
       owner: "René",
       postedAt: "00/00/0000",
-      content: "Cher réseau, je vous fais coucou",
+      content: "Post1",
       comments: [
         { _id: "7", author: "User1", content: "Post 1 : Comment placeholder1", date: "01/01/2001" },
         { _id: "8", author: "User2", content: "Post 1 : Comment placeholder2", date: "01/01/2001" },
@@ -44,7 +44,7 @@ const testUser = {
       _id: "2",
       owner: "René",
       postedAt: "00/00/0000",
-      content: "Cher réseau, je vous fais coucou",
+      content: "Post2",
       comments: [
         { _id: "1", author: "User1", content: "Post 2 : Comment placeholder1", date: "01/01/2001" },
         { _id: "2", author: "User2", content: "Post 2 : Comment placeholder2", date: "01/01/2001" },
@@ -62,7 +62,7 @@ const testUser = {
       _id: "3",
       owner: "René",
       postedAt: "00/00/0000",
-      content: "Cher réseau, je vous fais coucou",
+      content: "Post3",
       comments: [
         { _id: "4", author: "User1", content: "Post 3 : Comment placeholder1", date: "01/01/2001" },
         { _id: "5", author: "User2", content: "Post 3 : Comment placeholder2", date: "01/01/2001" },
@@ -87,7 +87,7 @@ const testUser = {
       name: "Job1", // Required
       type: "CDD",
       structure: "Struct1", // Required
-      city: "Atlanta",
+      city: "xpCity",
       fromDate: "12/12/2012", // Required
       toDate: "",
       description: "job desc 1",
@@ -97,7 +97,7 @@ const testUser = {
       name: "Job2",
       type: "CDD",
       structure: "Struct2",
-      city: "Atlanta",
+      city: "xpCity",
       fromDate: "12/09/2001",
       toDate: "09/10/2012",
       description: "job desc 2",
@@ -107,7 +107,7 @@ const testUser = {
       name: "Job3",
       type: "CDD",
       structure: "Struct3",
-      city: "Atlanta",
+      city: "xpCity",
       fromDate: "12/09/2001",
       toDate: "09/10/2012",
       description: "job desc 3",
@@ -120,7 +120,7 @@ const testUser = {
       degree: "",
       domain: "IT",
       results: "21/20",
-      city: "Atlanta",
+      city: "formationCity",
       fromDate: "12/12/2012", // Required
       toDate: "",
       description: "Formation desc 1",
@@ -130,7 +130,7 @@ const testUser = {
       degree: "",
       domain: "IT",
       results: "21/20",
-      city: "Atlanta",
+      city: "formationCity",
       fromDate: "01/02/1995",
       toDate: "12/12/2012",
       description: "Formation desc 2",

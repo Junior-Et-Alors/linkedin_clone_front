@@ -1,4 +1,4 @@
-const PictureForm = () => {
+const PictureForm = ({ inputsDatas, setInputsDatas, modify, handleChange }) => {
   return <div>PictureForm</div>;
 };
 
