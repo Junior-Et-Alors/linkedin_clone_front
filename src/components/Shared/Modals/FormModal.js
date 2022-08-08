@@ -33,15 +33,27 @@ const FormModal = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputsDatas);
+    const formData = new FormData();
+    // On peut boucler sur le tableau retourné par Object.keys()
+    Object.keys(inputsDatas).forEach((key) => {
+      console.log(key);
+      // formData.append()
+    });
+
+    // console.log(formData);
     setShowModal(false);
+    // if (modalConfig.modify) {
+    //   updateData();
+    // } else {
+    //   addData();
+    // }
   };
 
-  useEffect(() => {
-    return () => {
-      setInputsDatas({});
-    };
-  }, [showModal]);
+  // useEffect(() => {
+  //   return () => {
+  //     setInputsDatas({});
+  //   };
+  // }, [showModal]);
 
   return (
     <aside onClick={(e) => handleClick(e)} className={`modal-overlay ${showModal ? "toggled" : "untoggled"}`}>
@@ -54,13 +66,6 @@ const FormModal = () => {
   );
 };
 export default FormModal;
-
-// In handleSubmit function
-// if (modalConfig.modify) {
-//   updateData();
-// } else {
-//   addData();
-// }
 
 // Functions used by handleSubmit
 // const addData = async () => {

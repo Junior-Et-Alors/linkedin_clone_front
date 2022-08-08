@@ -10,8 +10,7 @@ Implémenter la communication avec le back
 Récupérer l'user dans un contexte global 
 
 */
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { useContext } from "react";
 import FormModal from "../components/Shared/Modals/FormModal";
 import DescriptionForm from "../components/Shared/Modals/formTemplates/DescriptionForm";
 import ExperienceForm from "../components/Shared/Modals/formTemplates/ExperienceForm";
