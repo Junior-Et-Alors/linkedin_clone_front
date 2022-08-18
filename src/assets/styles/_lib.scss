@@ -3,6 +3,7 @@
 // ====== FONT FAMILY ======
 $font-title: 'Montserrat', sans-serif;
 $font-text: "Roboto", sans-serif;
+$font-text-404: 'Roboto Mono', monospace;
 
 // ====== FONT WEIGHT ======
 
@@ -25,6 +26,10 @@ $fs-18px: 1.125rem;
 $fs-19px: 1.1875rem;
 $fs-20px: 1.25rem;
 $fs-21px: 1.3125rem;
+$fs-404-title: clamp(6rem, 1.8462rem + 18.4615vw, 18rem);
+$fs-404-text: clamp(1.125rem, 0.7356rem + 1.7308vw, 2.25rem);
+$fs-404-homelink: clamp(0.875rem, 0.7885rem + 0.3846vw, 1.125rem);
+
 
 $gap: 25px;
 $halfgap: math.div($gap, 2);
@@ -48,6 +53,7 @@ $size-16px: 16px;
 $size-24px: 24px;
 $size-32px: 32px;
 $size-40px: 40px;
+$circle-width: 280px;
 
 
 // ====== SPACING (MARGIN, PADDING) ======
@@ -73,6 +79,7 @@ $radius-5px: 5px;
 $pinkDark: hsl(343, 50%, 45%);
 $pink: hsl(343, 50%, 60%);
 $pinkLight: hsl(343, 50%, 74%);
+$pinkExtraLight: hsl(343, 50%, 84%);
 
 $white: hsl(0, 0%, 100%);
 $grayDark: hsl(0, 0%, 5%);

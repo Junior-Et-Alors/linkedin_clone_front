@@ -49,3 +49,11 @@
   /* Define how the browser behaves during download */
   font-display: swap;
 }
+
+@font-face {
+  font-family: "RobotoMono-Bold";
+  src: url(./../../assets/fonts/roboto/RobotoMono-Bold.ttf) format('ttf');
+  font-weight: 700;
+  /* Define how the browser behaves during download */
+  font-display: swap;
+}

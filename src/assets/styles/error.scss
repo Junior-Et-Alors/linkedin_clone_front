@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "./lib";
+
+.error {
+  text-align: center;
+  margin: auto;
+  color: lib.$pinkDark;
+  
+  &Title {
+    font-size: lib.$fs-404-title;
+    font-weight: lib.$fweight-bold;
+  }
+
+  &Text {
+    font-size: lib.$fs-18px;
+    margin-block-end: lib.$size-8px * 10; //space-base = 8px;
+    font-size: lib.$fs-404-text;
+  }
+
+  &HomeLink {
+    text-decoration: underline;
+    font-size: lib.$fs-404-homelink;
+    color: lib.$pinkDark;
+  }
+}
